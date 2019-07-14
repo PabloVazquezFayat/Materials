@@ -1,0 +1,15 @@
+<div class="navbar">
+  <div class="nav-wrapper">
+    <div class="logo-container">
+      <img src="/images/logo.png" alt="logo">
+      <h1>MATERIALS</h1>
+    </div>
+    <ul>
+      <li><a href="/">Sign up</a></li>
+      <li><a href="/login">Log in</a></li>
+      {{#if user}}
+        <a href="/logout">Log out</a>
+      {{/if}}
+    </ul>
+  </div>
+</div>
