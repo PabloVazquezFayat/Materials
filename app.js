@@ -51,26 +51,24 @@ app.use(session({
 //SET UP FLASH MESSAGES
 app.use(flash());
 
-//SET UP PASSPORT
-passport.use(new LocalStrategy({ usernameField: 'email' }, (username, password, done)=>{
-  User.findOne({email: username})
-  .then((err, user) =>{
-    if(err){
-      return done(err);
-    }
-    if(!user){
-      return done(null, false, {message: 'Incorrect email or password.'});
-    }
-    if(!bcrypt.compareSync(password, user.password)){
-      return done(null, false, {message: 'Incorrect email or password.'});
-    }
-    console.log('-=-==-=-=-=-=-=-=-=-=-=', user);
-    return done(null, user);
-  })
-  .catch((err)=>{
-    console.log('-=-=-=-=-=-=-=-=-=-=-=', err);
-  });
-}));
+passport.use(new LocalStrategy(
+  {usernameField: 'email', passwordField: 'password'},
+  function(username, password, done) {
+    User.findOne({ email: username }, (err, user)=> {
+      if(err){
+        return done(err);
+      }
+      if(!user){
+        return done(null, false, {message: 'Incorrect email or password.'});
+      }
+      if(!bcrypt.compareSync(password, user.password)){
+        return done(null, false, {message: 'Incorrect email or password.'});
+      }
+      console.log('-=-==-=-=-=-=-=-=-=-=-=', user);
+      return done(null, user);
+    });
+  }
+));
 
 passport.serializeUser((user, cb) => {
   cb(null, user._id);

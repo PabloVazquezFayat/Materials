@@ -55,8 +55,8 @@ router.get('/logout', (req, res, next)=>{
 });
 
 //get user profile if logged in
-router.get('/profile', (req, res, next)=>{//ensureLogin.ensureLoggedIn('/')
-  res.render('profile');//{user: req.user.name}
+router.get('/profile', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
+  res.render('profile', {user: req.user.name});
 });
 
 module.exports = router;
