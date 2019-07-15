@@ -184,8 +184,8 @@ a {
   justify-content: center; }
 
 .profile-wrapper {
-  background: red;
   width: 80%;
-  height: 650px; }
+  height: 650px;
+  border: solid 1px red; }
 
 /*# sourceMappingURL=style.css.map */

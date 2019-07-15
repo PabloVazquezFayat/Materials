@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const User = require('../models/User');
+const Material = require('../models/Material');
 const ensureLogin = require("connect-ensure-login");
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
@@ -56,7 +58,13 @@ router.get('/logout', (req, res, next)=>{
 
 //get user profile if logged in
 router.get('/profile', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
-  res.render('profile', {user: req.user.name});
+  Material.find({author: mongoose.Types.ObjectId(req.user._id)})
+  .then((data)=>{
+    res.render('profile', {user: req.user.name, material:data});
+  })
+  .catch((err)=>{
+    next(err);
+  });
 });
 
 module.exports = router;

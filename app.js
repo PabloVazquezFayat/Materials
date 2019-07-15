@@ -112,8 +112,4 @@ app.use('/', index);
 const userRoutes = require('./routes/userRoutes');
 app.use('/', userRoutes);
 
-//MATERIAL ROUTES
-const materialRoutes = require('./routes/materialRoutes');
-app.use('/', materialRoutes);
-
 module.exports = app;

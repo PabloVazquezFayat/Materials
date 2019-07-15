@@ -20,7 +20,7 @@ const materialSchema = new Schema({
     reflection: {type: String},
     refraction: {type: String},
     tags: [{type: String}],
-    author: {type: mongoose.Schema.Types.ObjectId, required: true}
+    author: {type: mongoose.Schema.Types.ObjectId, required: true, ref:'Author'}
 });
 
 const Material = mongoose.model('Material', materialSchema);

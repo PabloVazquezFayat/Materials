@@ -1,5 +1,38 @@
 <div class="profile-container">
   <div class="profile-wrapper">
     <h1>Welcome {{user}}</h1>
+    {{#each material}}
+      <div class="material">
+        <p>Name: {{this.name}}</p>
+        <p>Category: {{this.category}}</p>
+        <p>Diffuse: <img src='{{this.diffuse}}'></p>
+        <p>Specular: {{this.specualr}}</>
+        <h4>Emissive: {{this.emissive}}</h4>
+        <h4>Ambient: {{this.ambient}}</h4>
+        <h4>Opacity: {{this.name}}</h4>
+        <h4>Normal: {{this.normal}}</h4>
+        <h4>Bump: {{this.bump}}</h4>
+        <h4>Displace: {{this.displace}}</h4>
+        <h4>Reflection: {{this.reflection}}</h4>
+        <h4>Refraction: {{this.refraction}}</h4>
+        <h4>Tags: {{this.tags}}</h4>
+        <h4>Author: {{this.author}}</h4>
+      </div>
+    {{/each}}
   </div>
 </div>
+
+{{!-- <p>Name: {{this.name}}</p>
+<h4>Category: {{this.category}}</h4>
+<h4>Diffuse: {{this.diffuse}}</h4>
+<h4>Specular: {{this.specualr}}</h4>
+<h4>Emissive: {{this.emissive}}</h4>
+<h4>Ambient: {{this.ambient}}</h4>
+<h4>Opacity: {{this.name}}</h4>
+<h4>Normal: {{this.normal}}</h4>
+<h4>Bump: {{this.bump}}</h4>
+<h4>Displace: {{this.displace}}</h4>
+<h4>Reflection: {{this.reflection}}</h4>
+<h4>Refraction: {{this.refraction}}</h4>
+<h4>Tags: {{this.tags}}</h4>
+<h4>Author: {{this.author}}</h4> --}}
