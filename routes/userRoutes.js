@@ -3,10 +3,11 @@ const router = express.Router();
 const User = require('../models/User');
 const ensureLogin = require("connect-ensure-login");
 const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
 
 //Create new user
-router.post('/userRoutes', (req, res, next)=>{
+router.post('/signup', (req, res, next)=>{
   const name = req.body.name;
   const email = req.body.email;
   const pass = req.body.password;
@@ -18,7 +19,8 @@ router.post('/userRoutes', (req, res, next)=>{
   User.findOne({email: email})
   .then((data)=>{
     if(data){
-      res.redirect('/', {message: 'This is email is in use already, try again!'});
+      req.flash('error', 'This email is already in use, try again!');
+      res.redirect('/');
     } else {
       User.create({name: name, email: email ,password: hashedPassWord})
       .then((data)=>{
@@ -28,26 +30,33 @@ router.post('/userRoutes', (req, res, next)=>{
           })
       })
       .catch((err)=>{
-          console.log('Error-1------------------------',err);
+          console.log(err);
           next(err);
       });
     }
   })
   .catch((err)=>{
-    console.log('Error-2---------------------------' ,err);
+    console.log(err);
   });
 });
 
-//get user profile
-router.get('/profile', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
-  console.log(req.user);
-  res.render('profile', {user: req.user.name});
-});
+//get user log in
+router.post("/login", passport.authenticate("local", {
+  successRedirect: "/profile",
+  failureRedirect: "/",
+  failureFlash: true,
+  passReqToCallback: true
+}));
 
 //log out user
 router.get('/logout', (req, res, next)=>{
   req.logout();
   res.redirect('/');
+});
+
+//get user profile if logged in
+router.get('/profile', (req, res, next)=>{//ensureLogin.ensureLoggedIn('/')
+  res.render('profile');//{user: req.user.name}
 });
 
 module.exports = router;

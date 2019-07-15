@@ -11,6 +11,7 @@ a {
 
 .navbar {
   background: #f5f4f4;
+  background: #fff;
   width: 100%;
   height: 80px;
   float: left;
@@ -52,14 +53,14 @@ a {
   padding: 10px 20px;
   list-style: none;
   font-family: 'Lato';
-  border-radius: 3px; }
-
-.nav-wrapper ul li a {
-  text-decoration: none;
+  border-radius: 3px;
   color: white; }
 
+.nav-wrapper ul li:hover {
+  cursor: pointer; }
+
 .container {
-  background: #43167c;
+  background: #0077ff;
   background: linear-gradient(90deg, #43167c 0%, #105ac9 50%, #00d4ff 100%);
   width: 100%;
   height: 650px;
@@ -83,6 +84,13 @@ a {
   color: white;
   font-family: 'Lato';
   font-size: 30px;
+  padding: 0px;
+  margin: 0px 0px 20px 0px; }
+
+.create-account h3 {
+  color: white;
+  font-family: 'Lato';
+  font-size: 20px;
   padding: 0px;
   margin: 0px 0px 20px 0px; }
 
@@ -132,5 +140,24 @@ a {
 
 .graphic img {
   width: 500px; }
+
+.footer-container {
+  background: #3a3a3a;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center; }
+
+.footer-wrapper {
+  width: 80%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.footer-wrapper p {
+  color: white;
+  font-size: 15px;
+  font-family: 'Lato'; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,23 +1,25 @@
 require('dotenv').config();
 
-const bodyParser   = require('body-parser');
-const cookieParser = require('cookie-parser');
-const express      = require('express');
-const favicon      = require('serve-favicon');
-const hbs          = require('hbs');
-const mongoose     = require('mongoose');
-const logger       = require('morgan');
-const path         = require('path');
-const session       = require("express-session");
+const bodyParser    = require('body-parser');
+const cookieParser  = require('cookie-parser');
+const express       = require('express');
+const favicon       = require('serve-favicon');
+const hbs           = require('hbs');
+const mongoose      = require('mongoose');
+const logger        = require('morgan');
+const path          = require('path');
 const bcrypt        = require("bcryptjs");
+const session       = require("express-session");
 const passport      = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const User          = require("./models/User");
 const flash         = require("connect-flash");
+const User          = require("./models/User");
 
 
 //REGISTER PARTIALS
 hbs.registerPartials(__dirname+"/views/partials");
+
+mongoose.set('useCreateIndex', true);
 
 mongoose
   .connect('mongodb://localhost/materials', {useNewUrlParser: true})
@@ -46,7 +48,30 @@ app.use(session({
   saveUninitialized: true
 }));
 
-// Setup passport
+//SET UP FLASH MESSAGES
+app.use(flash());
+
+//SET UP PASSPORT
+passport.use(new LocalStrategy({ usernameField: 'email' }, (username, password, done)=>{
+  User.findOne({email: username})
+  .then((err, user) =>{
+    if(err){
+      return done(err);
+    }
+    if(!user){
+      return done(null, false, {message: 'Incorrect email or password.'});
+    }
+    if(!bcrypt.compareSync(password, user.password)){
+      return done(null, false, {message: 'Incorrect email or password.'});
+    }
+    console.log('-=-==-=-=-=-=-=-=-=-=-=', user);
+    return done(null, user);
+  })
+  .catch((err)=>{
+    console.log('-=-=-=-=-=-=-=-=-=-=-=', err);
+  });
+}));
+
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
 });
@@ -57,28 +82,6 @@ passport.deserializeUser((id, cb) => {
     cb(null, user);
   });
 });
-
-app.use(flash());
-
-passport.use(new LocalStrategy(
-  {usernameField: 'email', passwordField: 'password'}, 
-  {passReqToCallback: true}, (req, email, password, next) => {
-  User.findOne({ email }, (err, user) => {
-    if (err) {
-      return next(err);
-    }
-    if (!email) {
-      return next(null, false, { message: "Incorrect email" });
-    }
-    if (!bcrypt.compareSync(password, user.password)) {
-      return next(null, false, { message: "Incorrect password" });
-    }
-
-    console.log(user);
-
-    return next(null, user);
-  });
-}));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -98,7 +101,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-//Global error messages get passed to all hbs temlpates
+//Global error messages get passed to all hbs templates
 app.use((req, res, next)=>{
   res.locals.message = req.flash('error');
   next();
@@ -109,7 +112,7 @@ const index = require('./routes/index');
 app.use('/', index);
 
 //USER ROUTES
-const userSignUp = require('./routes/userRoutes');
-app.use('/', userSignUp);
+const userRoutes = require('./routes/userRoutes');
+app.use('/', userRoutes);
 
 module.exports = app;
