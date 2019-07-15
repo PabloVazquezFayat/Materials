@@ -5,10 +5,11 @@
       <h1>MATERIALS</h1>
     </div>
     <ul>
-      <li>Sign up</li>
-      <li>Log in</li>
       {{#if user}}
         <a href="/logout">Log out</a>
+      {{else}}
+        <li id="sign-up"><a href="/">Sign up</a></li>
+        <li id="log-in">Log in</li>
       {{/if}}
     </ul>
   </div>

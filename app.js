@@ -64,7 +64,6 @@ passport.use(new LocalStrategy(
       if(!bcrypt.compareSync(password, user.password)){
         return done(null, false, {message: 'Incorrect email or password.'});
       }
-      console.log('-=-==-=-=-=-=-=-=-=-=-=', user);
       return done(null, user);
     });
   }
@@ -97,7 +96,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Materials';
 
 //Global error messages get passed to all hbs templates
 app.use((req, res, next)=>{
@@ -112,5 +111,9 @@ app.use('/', index);
 //USER ROUTES
 const userRoutes = require('./routes/userRoutes');
 app.use('/', userRoutes);
+
+//MATERIAL ROUTES
+const materialRoutes = require('./routes/materialRoutes');
+app.use('/', materialRoutes);
 
 module.exports = app;

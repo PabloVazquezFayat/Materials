@@ -4,28 +4,40 @@
       <img src="/images/building.png" alt="image of 3D sphere">
     </div>
     <div class="create-account">
-      {{#if message}}
-       <h3>{{message}}</h3>
-      {{else}}
-        <h1>Create a new account!</h1>
-      {{/if}}
       <div class="singup-or-login">
-        <form action="/signup" method="POST" id="user-login">
-          <label>Name:</label>
-          <input type="text" name="name" required="true" placeholder="Enter your name">
-          <label>Email:</label>
-          <input type="email" name="email" required="true" placeholder="Enter your Email">
-          <label>Password:</label>
-          <input type="password" name="password" required="true" placeholder="Enter a new password">
-          <button>Create Account</button>
-        </form>
-        <form action="/login" method="POST" id="user-login">
-          <label>Email:</label>
-          <input type="email" name="email" required="true" placeholder="Enter your Email">
-          <label>Password:</label>
-          <input type="password" name="password" required="true" placeholder="Enter your password">
-          <button>Log in</button>
-        </form>
+
+        <div class="signup-form">
+          {{#if message}}
+            <h3 class="fail-message">{{message}}</h3>
+          {{else}}
+            <h1>Create a new account!</h1>
+          {{/if}}
+          <form action="/signup" method="POST" id="user-signup">
+            <label>Name:</label>
+            <input type="text" name="name" required="true" placeholder="Enter your name">
+            <label>Email:</label>
+            <input type="email" name="email" required="true" placeholder="Enter your Email">
+            <label>Password:</label>
+            <input type="password" name="password" required="true" placeholder="Enter a new password">
+            <button>Create Account</button>
+          </form>
+        </div>
+
+        <div class="login-form">
+          {{#if message}}
+            <h3 class="fail-message">{{message}}</h3>
+          {{else}}
+            <h1>Log in</h1>
+          {{/if}}
+          <form action="/login" method="POST" id="user-login">
+            <label>Email:</label>
+            <input type="email" name="email" required="true" placeholder="Enter your Email">
+            <label>Password:</label>
+            <input type="password" name="password" required="true" placeholder="Enter your password">
+            <button>Log in</button>
+          </form>
+        </div>
+
       </div>
     </div>
   </div>
