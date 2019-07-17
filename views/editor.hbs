@@ -20,9 +20,12 @@
               <div class="mat-add">
                 <img src="/images/plus-blk.png" alt="">
               </div>
-              <form action="/uploadTexture/diffuse" method="POST" enctype="multipart/form-data">
-                <input type="file" required='true'>
+
+              <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="diffuse" required='true'>
+                <button>Add</button>
               </form>
+
             </div>
           </div>
           <div class="material-prop">

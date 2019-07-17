@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Material = require('../models/Material');
 const ensureLogin = require("connect-ensure-login");
+const multer = require('../components/multer/multer');
 
 //Get single material
 router.get('/editor/:id', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
@@ -20,8 +21,15 @@ router.get('/editor', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
 });
 
 //Upload single material texture
-router.post('/uploadTexture', ensureLogin.ensureLoggedIn('/'), ()=>{
-
+router.post('/upload', ensureLogin.ensureLoggedIn('/'), multer.single('diffuse'), (req, res, next)=>{
+  let id = req.headers.referer.split('/')[4]
+  Material.findByIdAndUpdate(id, { diffuse: req.file.url })
+  .then(()=>{
+    res.redirect('/editor/'+id);
+  })
+  .catch((err)=>{
+    next(err);    
+  });
 });
 
 //DELETE single material

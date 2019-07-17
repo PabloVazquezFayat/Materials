@@ -13,7 +13,7 @@ var storage = cloudinaryStorage({
 	folder: 'materials',
 	allowedFormats: ['jpg', 'png'],
 	filename: function(req, file, cb) {
-		cb(null, file.originalname);
+		cb(null, file.originalname+'-'+Date.now());
 	},
 });
 
