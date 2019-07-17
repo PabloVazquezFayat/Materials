@@ -14,16 +14,20 @@
             <img src="{{material.diffuse}}" alt="Material diffuse texture" onerror="this.src='/images/no-image.jpg';">
             <p>Diffuse map</p>
             <div class="material-actions">
-              <div class="mat-del">
+              {{!-- <div class="mat-del">
                 <img src="/images/minus-blk.png" alt="">
               </div>
               <div class="mat-add">
                 <img src="/images/plus-blk.png" alt="">
-              </div>
+              </div> --}}
 
-              <form action="/upload" method="POST" enctype="multipart/form-data">
-                <input type="file" name="diffuse" required='true'>
+              <form action="/upload/diffuse" method="POST" enctype="multipart/form-data">
+                <input type="file" name="texture" required='true'>
                 <button>Add</button>
+              </form>
+
+              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+                <button>Delete</button>
               </form>
 
             </div>

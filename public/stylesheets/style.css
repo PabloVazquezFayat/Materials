@@ -412,7 +412,7 @@ a {
 .material-prop {
   background: #fff;
   width: 100%;
-  height: 35px;
+  height: 155px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -434,7 +434,7 @@ a {
   color: black; }
 
 .material-actions {
-  width: 40px;
+  background: green;
   margin: 0px 10px 0px 0px;
   display: flex;
   justify-content: space-between; }

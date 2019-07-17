@@ -17,6 +17,10 @@ var storage = cloudinaryStorage({
 	},
 });
 
+var fileDestroy = (fileName)=>{
+	cloudinary.destroy(fileName);
+};
+
 const uploadCloud = multer({ storage: storage });
 
-module.exports = uploadCloud;
+module.exports = {uploadCloud, fileDestroy};
