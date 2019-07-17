@@ -1,38 +1,32 @@
 <div class="profile-container">
   <div class="profile-wrapper">
-    <h1>Welcome {{user}}</h1>
+    <div class="user-actions">
+      {{!-- search by #tag --}}
+      {{!-- sort by category --}}
+      <div class="create-material">
+       <a href="/editor"><img src="/images/plus.png" alt=""></a>
+      </div>
+    </div>
     {{#each material}}
-      <div class="material">
-        <p>Name: {{this.name}}</p>
-        <p>Category: {{this.category}}</p>
-        <p>Diffuse: <img src='{{this.diffuse}}'></p>
-        <p>Specular: {{this.specualr}}</>
-        <h4>Emissive: {{this.emissive}}</h4>
-        <h4>Ambient: {{this.ambient}}</h4>
-        <h4>Opacity: {{this.name}}</h4>
-        <h4>Normal: {{this.normal}}</h4>
-        <h4>Bump: {{this.bump}}</h4>
-        <h4>Displace: {{this.displace}}</h4>
-        <h4>Reflection: {{this.reflection}}</h4>
-        <h4>Refraction: {{this.refraction}}</h4>
-        <h4>Tags: {{this.tags}}</h4>
-        <h4>Author: {{this.author}}</h4>
+      <div class="material-listing">
+        <div class="material-img">
+          <img src="{{this.diffuse}}" alt="Material diffuse texture" onerror="this.src='/images/no-image.jpg';">
+        </div>
+        <div class="material-titles">
+          <div class="mat-name">
+            <h5>{{this.name}}</h5>
+          </div>
+          <div class="mat-category">
+             <h6>{{this.category}}</h6>
+          </div>
+        </div>
+        <div class="material-actions">
+          <a href="/editor/{{this.id}}">View</a>
+          <form method="POST" action='/delete/{{this.id}}'>
+            <button>Delete</button>
+          </form>
+        </div>
       </div>
     {{/each}}
   </div>
 </div>
-
-{{!-- <p>Name: {{this.name}}</p>
-<h4>Category: {{this.category}}</h4>
-<h4>Diffuse: {{this.diffuse}}</h4>
-<h4>Specular: {{this.specualr}}</h4>
-<h4>Emissive: {{this.emissive}}</h4>
-<h4>Ambient: {{this.ambient}}</h4>
-<h4>Opacity: {{this.name}}</h4>
-<h4>Normal: {{this.normal}}</h4>
-<h4>Bump: {{this.bump}}</h4>
-<h4>Displace: {{this.displace}}</h4>
-<h4>Reflection: {{this.reflection}}</h4>
-<h4>Refraction: {{this.refraction}}</h4>
-<h4>Tags: {{this.tags}}</h4>
-<h4>Author: {{this.author}}</h4> --}}

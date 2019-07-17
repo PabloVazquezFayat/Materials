@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const materialSchema = new Schema({
     name: {type: String, required: true, minlength: 1},
-    catergory:  
+    category:  
     {
       type: String, 
-      enum:['architecture', 'fabric', 'ground', 'metal', 'plant', 'stone', 'synthetic', 'wood'], 
+      enum:['Architecture', 'Fabric', 'Ground', 'Metal', 'Plant', 'Stone', 'Synthetic', 'Wood'], 
       required: true
     },
     diffuse:    {type: String},

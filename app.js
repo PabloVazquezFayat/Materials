@@ -83,6 +83,13 @@ passport.deserializeUser((id, cb) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req, res, next)=>{
+  res.locals.user = req.user;
+  res.locals.error = req.flash('error');
+  res.locals.message = req.flash('success');
+  next();
+});
+
 // Express View engine setup
 app.use(require('node-sass-middleware')({
   src:  path.join(__dirname, 'public'),
@@ -111,5 +118,8 @@ app.use('/', index);
 //USER ROUTES
 const userRoutes = require('./routes/userRoutes');
 app.use('/', userRoutes);
+
+const materialRoutes = require('./routes/materialRoutes');
+app.use('/', materialRoutes);
 
 module.exports = app;

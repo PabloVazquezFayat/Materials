@@ -7,7 +7,7 @@ mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true });
 const materials = [
   {
     name: 'Red Bricks',
-    catergory: 'architecture',
+    category: 'Architecture',
     diffuse: '/images/mats/redbricks-diffuse.png',
     specular: '',
     emissive: '',
@@ -18,7 +18,23 @@ const materials = [
     displace: '/images/mat/redbricks-height.png',
     reflection: '',
     refraction: '',
-    tags: ['#bricks', '#redbricks'],
+    tags: ['#brick', '#redbrick'],
+    author: '5d2bce160642a914df7f3752'
+  },
+  {
+    name: 'Mahogany Wood Floor',
+    category: 'Architecture',
+    diffuse: '/images/mats/mahogany-diffuse.png',
+    specular: '',
+    emissive: '',
+    ambient: '/images/mats/mahogany-ambient.png',
+    opacity: '',
+    normal: '/images/mats/mahogany-normal.png',
+    bump: '',
+    displace: '/images/mat/mahogany-height.png',
+    reflection: '',
+    refraction: '',
+    tags: ['#wood', '#woodfloors'],
     author: '5d2bce160642a914df7f3752'
   }
 ];

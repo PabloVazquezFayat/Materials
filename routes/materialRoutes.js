@@ -1,17 +1,38 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const Material = require('../models/Material');
 const ensureLogin = require("connect-ensure-login");
 
-//Get materials
-router.get('/materials', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
-  //Return all materails that belong to author/user
-  Material.find({author: mongoose.Types.ObjectId(req.user._id)})
+//Get single material
+router.get('/editor/:id', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
+  Material.findById(req.params.id)
   .then((data)=>{
-    res.send(data);
+    res.render('editor', {material: data});
   })
   .catch((err)=>{
+    next(err);
+  });
+});
+
+//Create single material
+router.get('/editor', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
+  res.render('editor');
+});
+
+//Upload single material texture
+router.post('/uploadTexture', ensureLogin.ensureLoggedIn('/'), ()=>{
+
+});
+
+//DELETE single material
+router.post('/delete/:id', ensureLogin.ensureLoggedIn('/'), (req, res, next) => {
+  Material.findByIdAndRemove(req.params.id)
+  .then((data)=>{
+    res.redirect('/profile');
+    console.log(data);
+  })
+  .catch((err)=>{
+    console.log(err);
     next(err);
   });
 });

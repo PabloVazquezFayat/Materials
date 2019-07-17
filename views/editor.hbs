@@ -1,0 +1,162 @@
+<div class="editor-container">
+  <div class="editor-wrapper">
+    <div class="material-editor">
+      <div class="material">
+        <div class="material-name">
+          <img id="mat-icon" src="{{material.diffuse}}" alt="Material diffuse texture" onerror="this.src='/images/no-image.jpg';">
+          <h5>{{material.name}}</h5>
+        </div>
+        <div class="material-cat">
+          <h5>{{material.category}}</h5>
+        </div>
+        <div class="material-props">
+          <div class="material-prop">
+            <img src="{{material.diffuse}}" alt="Material diffuse texture" onerror="this.src='/images/no-image.jpg';">
+            <p>Diffuse map</p>
+            <div class="material-actions">
+              <div class="mat-del">
+                <img src="/images/minus-blk.png" alt="">
+              </div>
+              <div class="mat-add">
+                <img src="/images/plus-blk.png" alt="">
+              </div>
+              <form action="/uploadTexture/diffuse" method="POST" enctype="multipart/form-data">
+                <input type="file" required='true'>
+              </form>
+            </div>
+          </div>
+          <div class="material-prop">
+            <img src="{{material.specular}}" alt="Material specular texture" onerror="this.src='/images/no-image.jpg';">
+            <p>Specular map</p>
+            <div class="material-actions">
+              <div class="mat-del">
+                <img src="/images/minus-blk.png" alt="">
+              </div>
+              <div class="mat-add">
+                <img src="/images/plus-blk.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="material-prop">
+            <img src="{{material.emissive}}" alt="Material emissive texture" onerror="this.src='/images/no-image.jpg';">
+            <p>Emissive map</p>
+            <div class="material-actions">
+              <div class="mat-del">
+                <img src="/images/minus-blk.png" alt="">
+              </div>
+              <div class="mat-add">
+                <img src="/images/plus-blk.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="material-prop">
+            <img src="{{material.ambient}}" alt="Material ambient texture" onerror="this.src='/images/no-image.jpg';">
+            <p>Ambient map</p>
+            <div class="material-actions">
+              <div class="mat-del">
+                <img src="/images/minus-blk.png" alt="">
+              </div>
+              <div class="mat-add">
+                <img src="/images/plus-blk.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="material-prop">
+            <img src="{{material.opacity}}" alt="Material name texture" onerror="this.src='/images/no-image.jpg';">
+            <p>Opacity map</p>
+            <div class="material-actions">
+              <div class="mat-del">
+                <img src="/images/minus-blk.png" alt="">
+              </div>
+              <div class="mat-add">
+                <img src="/images/plus-blk.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="material-prop">
+            <img src="{{material.normal}}" alt="Material normal texture" onerror="this.src='/images/no-image.jpg';">
+            <p>Normal map</p>
+            <div class="material-actions">
+              <div class="mat-del">
+                <img src="/images/minus-blk.png" alt="">
+              </div>
+              <div class="mat-add">
+                <img src="/images/plus-blk.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="material-prop">
+            <img src="{{material.bump}}" alt="Material bump texture" onerror="this.src='/images/no-image.jpg';">
+            <p>Bump map</p>
+            <div class="material-actions">
+              <div class="mat-del">
+                <img src="/images/minus-blk.png" alt="">
+              </div>
+              <div class="mat-add">
+                <img src="/images/plus-blk.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="material-prop">
+            <img src="{{material.displace}}" alt="Material displace texture" onerror="this.src='/images/no-image.jpg';">
+            <p>Displace map</p>
+            <div class="material-actions">
+              <div class="mat-del">
+                <img src="/images/minus-blk.png" alt="">
+              </div>
+              <div class="mat-add">
+                <img src="/images/plus-blk.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="material-prop">
+            <img src="{{material.reflection}}" alt="Material reflection texture" onerror="this.src='/images/no-image.jpg';">
+            <p>Reflection map</p>
+            <div class="material-actions">
+              <div class="mat-del">
+                <img src="/images/minus-blk.png" alt="">
+              </div>
+              <div class="mat-add">
+                <img src="/images/plus-blk.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="material-prop">
+            <img src="{{material.refraction}}" alt="Material refraction texture" onerror="this.src='/images/no-image.jpg';">
+            <p>Refraction map</p>
+            <div class="material-actions">
+              <div class="mat-del">
+                <img src="/images/minus-blk.png" alt="">
+              </div>
+              <div class="mat-add">
+                <img src="/images/plus-blk.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="material-tags">
+            {{#each material.tags}}
+              <h5>{{this}}</h5>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="preview">
+      <div class="preview-actions">
+        <div class="shape">
+          <img src="/images/cube.png" alt="">
+        </div>
+        <div class="shape">
+          <img src="/images/sphere.png" alt="">
+        </div>
+        <div class="shape">
+          <img src="/images/cylinder.png" alt="">
+        </div>
+        <div class="shape">
+          <img src="/images/sky.png" alt="">
+        </div>
+      </div>
+      <canvas id="renderCanvas"></canvas>
+    </div>
+  </div>
+</div>

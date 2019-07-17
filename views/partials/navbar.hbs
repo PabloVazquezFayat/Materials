@@ -6,7 +6,11 @@
     </div>
     <ul>
       {{#if user}}
-        <a href="/logout">Log out</a>
+        <div class="user-icons">
+          <h4>Welcome, {{user.name}}</h4>
+          <a href="/profile"><img src='../images/library.png'></a>
+          <a href="/logout">Log out</a>
+        </div>
       {{else}}
         <li id="sign-up"><a href="/">Sign up</a></li>
         <li id="log-in">Log in</li>

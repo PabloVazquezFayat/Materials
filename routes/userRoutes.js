@@ -60,7 +60,7 @@ router.get('/logout', (req, res, next)=>{
 router.get('/profile', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
   Material.find({author: mongoose.Types.ObjectId(req.user._id)})
   .then((data)=>{
-    res.render('profile', {user: req.user.name, material:data});
+    res.render('profile', {material:data});
   })
   .catch((err)=>{
     next(err);
