@@ -4,8 +4,26 @@
       {{!-- search by #tag --}}
       {{!-- sort by category --}}
       <div class="create-material">
-       <a href="/editor"><img src="/images/plus.png" alt=""></a>
+        <img src="/images/plus.png">
       </div>
+    </div>
+    <div class="setup-material">
+      <form action="/createMaterial/{{user.id}}" method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" id="name-the-mat" required="true">
+        <label>Category:</label>
+        <select name="category">
+          <option value="Architecture">Architecture</option>
+          <option value="Fabric">Fabric</option>
+          <option value="Ground">Ground</option>
+          <option value="Metal">Metal</option>
+          <option value="Plant">Plant</option>
+          <option value="Stone">Stone</option>
+          <option value="Synthetic">Synthetic</option>
+          <option value="Wood">Wood</option>
+        </select>
+        <button>Create</button>
+      </form>
     </div>
     {{#each material}}
       <div class="material-listing">

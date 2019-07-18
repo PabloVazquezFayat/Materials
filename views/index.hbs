@@ -7,8 +7,8 @@
       <div class="singup-or-login">
 
         <div class="signup-form">
-          {{#if message}}
-            <h3 class="fail-message">{{message}}</h3>
+          {{#if error}}
+            <h1 class="fail-message">{{error}}</h1>
           {{else}}
             <h1>Create a new account!</h1>
           {{/if}}
@@ -24,8 +24,8 @@
         </div>
 
         <div class="login-form">
-          {{#if message}}
-            <h3 class="fail-message">{{message}}</h3>
+          {{#if error}}
+            <h1 class="fail-message">{{error}}</h1>
           {{else}}
             <h1>Log in</h1>
           {{/if}}

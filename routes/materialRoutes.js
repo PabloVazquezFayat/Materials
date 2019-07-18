@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Material = require('../models/Material');
 const ensureLogin = require("connect-ensure-login");
-const {uploadCloud,fileDestroy} = require('../components/multer/multer');
+const multer = require('../components/multer/multer');
 
 //Get single material
 router.get('/editor/:id', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
@@ -17,12 +17,24 @@ router.get('/editor/:id', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
 });
 
 //Create single material
-router.get('/editor', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
-  res.render('editor');
+router.post('/createMaterial/:id', ensureLogin.ensureLoggedIn('/'), (req, res, next)=>{
+  let newMaterial = {
+    name: req.body.name,
+    category: req.body.category,
+    author: req.params.id
+  }
+  Material.create(newMaterial)
+  .then((data)=>{
+    console.log(data);
+    res.redirect('/editor/'+data._id);
+  })
+  .catch((err)=>{
+    next(err);
+  });
 });
 
 //Upload single material texture
-router.post('/upload/:channel', ensureLogin.ensureLoggedIn('/'), uploadCloud.single('texture'), (req, res, next)=>{
+router.post('/upload/:channel', ensureLogin.ensureLoggedIn('/'), multer.single('texture'), (req, res, next)=>{
 
   let id = req.headers.referer.split('/')[4];
   let channel = req.params.channel;
@@ -51,7 +63,7 @@ router.post('/delete/:material/:channel', ensureLogin.ensureLoggedIn('/'), (req,
     res.redirect('/editor/'+id);
   })
   .catch((err)=>{
-
+    next(err);
   });
   
 });
