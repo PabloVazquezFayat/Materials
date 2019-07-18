@@ -486,6 +486,10 @@ a {
   touch-action: none;
 }
 
+#renderCanvas:focus{
+  outline: none;
+}
+
 .setup-material{
   background: white;
   width: 370px;

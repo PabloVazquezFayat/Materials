@@ -414,6 +414,9 @@ a {
   border-radius: 4px;
   touch-action: none; }
 
+#renderCanvas:focus {
+  outline: none; }
+
 .setup-material {
   background: white;
   width: 370px;

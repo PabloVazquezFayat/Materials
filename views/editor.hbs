@@ -13,7 +13,7 @@
         <div class="material-props">
 
           <div class="material-prop">
-            <img src="{{material.diffuse}}" alt="Material diffuse texture" onerror="this.src='/images/no-image.jpg';">
+            <img src="{{material.diffuse}}" alt="Material diffuse texture" onerror="this.src='/images/no-image.jpg';" id="diffuse">
             <p>Diffuse map</p>
             <div class="material-actions">
 
@@ -32,7 +32,7 @@
           </div>
 
           <div class="material-prop">
-            <img src="{{material.specular}}" alt="Material specular texture" onerror="this.src='/images/no-image.jpg';">
+            <img src="{{material.specular}}" alt="Material specular texture" onerror="this.src='/images/no-image.jpg';" id="specular">
             <p>Specular map</p>
             <div class="material-actions">
               
@@ -43,7 +43,7 @@
                 <button class="mat-add spec"><img src="/images/plus-blk.png" alt=""></button>
               </form>
 
-              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+              <form action="/delete/{{material._id}}/specular" method="POST" enctype="multipart/form-data">
                 <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
               </form>
 
@@ -51,7 +51,7 @@
           </div>
 
           <div class="material-prop">
-            <img src="{{material.emissive}}" alt="Material emissive texture" onerror="this.src='/images/no-image.jpg';">
+            <img src="{{material.emissive}}" alt="Material emissive texture" onerror="this.src='/images/no-image.jpg';" id="emissive">
             <p>Emissive map</p>
             <div class="material-actions">
               
@@ -62,7 +62,7 @@
                 <button class="mat-add emis"><img src="/images/plus-blk.png" alt=""></button>
               </form>
 
-              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+              <form action="/delete/{{material._id}}/emissive" method="POST" enctype="multipart/form-data">
                 <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
               </form>
 
@@ -70,7 +70,7 @@
           </div>
 
           <div class="material-prop">
-            <img src="{{material.ambient}}" alt="Material ambient texture" onerror="this.src='/images/no-image.jpg';">
+            <img src="{{material.ambient}}" alt="Material ambient texture" onerror="this.src='/images/no-image.jpg';" id="ambient">
             <p>Ambient map</p>
             <div class="material-actions">
               
@@ -81,7 +81,7 @@
                 <button class="mat-add ambi"><img src="/images/plus-blk.png" alt=""></button>
               </form>
 
-              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+              <form action="/delete/{{material._id}}/ambient" method="POST" enctype="multipart/form-data">
                 <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
               </form>
 
@@ -89,7 +89,7 @@
           </div>
 
           <div class="material-prop">
-            <img src="{{material.opacity}}" alt="Material name texture" onerror="this.src='/images/no-image.jpg';">
+            <img src="{{material.opacity}}" alt="Material name texture" onerror="this.src='/images/no-image.jpg';" id="opacity">
             <p>Opacity map</p>
             <div class="material-actions">
                 
@@ -100,7 +100,7 @@
                 <button class="mat-add opac"><img src="/images/plus-blk.png" alt=""></button>
               </form>
 
-              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+              <form action="/delete/{{material._id}}/opacity" method="POST" enctype="multipart/form-data">
                 <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
               </form>
 
@@ -108,7 +108,7 @@
           </div>
 
           <div class="material-prop">
-            <img src="{{material.normal}}" alt="Material normal texture" onerror="this.src='/images/no-image.jpg';">
+            <img src="{{material.normal}}" alt="Material normal texture" onerror="this.src='/images/no-image.jpg';" id="normal">
             <p>Normal map</p>
             <div class="material-actions">
               
@@ -119,7 +119,7 @@
                 <button class="mat-add normal"><img src="/images/plus-blk.png" alt=""></button>
               </form>
 
-              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+              <form action="/delete/{{material._id}}/normal" method="POST" enctype="multipart/form-data">
                 <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
               </form>
 
@@ -127,7 +127,7 @@
           </div>
 
           <div class="material-prop">
-            <img src="{{material.bump}}" alt="Material bump texture" onerror="this.src='/images/no-image.jpg';">
+            <img src="{{material.bump}}" alt="Material bump texture" onerror="this.src='/images/no-image.jpg';" id="bump">
             <p>Bump map</p>
             <div class="material-actions">
               
@@ -138,7 +138,7 @@
                 <button class="mat-add bump"><img src="/images/plus-blk.png" alt=""></button>
               </form>
 
-              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+              <form action="/delete/{{material._id}}/bump" method="POST" enctype="multipart/form-data">
                 <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
               </form>
 
@@ -146,7 +146,7 @@
           </div>
 
           <div class="material-prop">
-            <img src="{{material.displace}}" alt="Material displace texture" onerror="this.src='/images/no-image.jpg';">
+            <img src="{{material.displace}}" alt="Material displace texture" onerror="this.src='/images/no-image.jpg';" id="displace">
             <p>Displace map</p>
             <div class="material-actions">
               
@@ -157,7 +157,7 @@
                 <button class="mat-add disp"><img src="/images/plus-blk.png" alt=""></button>
               </form>
 
-              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+              <form action="/delete/{{material._id}}/displace" method="POST" enctype="multipart/form-data">
                 <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
               </form>
 
@@ -165,7 +165,7 @@
           </div>
 
           <div class="material-prop">
-            <img src="{{material.reflection}}" alt="Material reflection texture" onerror="this.src='/images/no-image.jpg';">
+            <img src="{{material.reflection}}" alt="Material reflection texture" onerror="this.src='/images/no-image.jpg';" id="reflection">
             <p>Reflection map</p>
             <div class="material-actions">
 
@@ -176,7 +176,7 @@
                 <button class="mat-add refl"><img src="/images/plus-blk.png" alt=""></button>
               </form>
 
-              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+              <form action="/delete/{{material._id}}/reflection" method="POST" enctype="multipart/form-data">
                 <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
               </form>
 
@@ -184,7 +184,7 @@
           </div>
 
           <div class="material-prop">
-            <img src="{{material.refraction}}" alt="Material refraction texture" onerror="this.src='/images/no-image.jpg';">
+            <img src="{{material.refraction}}" alt="Material refraction texture" onerror="this.src='/images/no-image.jpg';" id="refraction">
             <p>Refraction map</p>
             <div class="material-actions">
               
@@ -195,7 +195,7 @@
                 <button class="mat-add refr"><img src="/images/plus-blk.png" alt=""></button>
               </form>
 
-              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+              <form action="/delete/{{material._id}}/refraction" method="POST" enctype="multipart/form-data">
                 <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
               </form>
 
