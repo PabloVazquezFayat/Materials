@@ -1,6 +1,7 @@
 <div class="editor-container">
   <div class="editor-wrapper">
     <div class="material-editor">
+
       <div class="material">
         <div class="material-name">
           <img id="mat-icon" src="{{material.diffuse}}" alt="Material diffuse texture" onerror="this.src='/images/no-image.jpg';">
@@ -10,144 +11,207 @@
           <h5>{{material.category}}</h5>
         </div>
         <div class="material-props">
+
           <div class="material-prop">
             <img src="{{material.diffuse}}" alt="Material diffuse texture" onerror="this.src='/images/no-image.jpg';">
             <p>Diffuse map</p>
             <div class="material-actions">
-              {{!-- <div class="mat-del">
-                <img src="/images/minus-blk.png" alt="">
-              </div>
-              <div class="mat-add">
-                <img src="/images/plus-blk.png" alt="">
-              </div> --}}
 
-              <form action="/upload/diffuse" method="POST" enctype="multipart/form-data">
-                <input type="file" name="texture" required='true'>
-                <button>Add</button>
+              <form action="/upload/diffuse" method="POST" enctype="multipart/form-data" class="upload-texture-form">
+                <label class="file-container">
+                  <input type="file" name="texture" required='true' class="upload-texture" id="diff">
+                </label>
+                <button class="mat-add diff"><img src="/images/plus-blk.png" alt=""></button>
               </form>
 
               <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
-                <button>Delete</button>
+                <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
               </form>
 
             </div>
           </div>
+
           <div class="material-prop">
             <img src="{{material.specular}}" alt="Material specular texture" onerror="this.src='/images/no-image.jpg';">
             <p>Specular map</p>
             <div class="material-actions">
-              <div class="mat-del">
-                <img src="/images/minus-blk.png" alt="">
-              </div>
-              <div class="mat-add">
-                <img src="/images/plus-blk.png" alt="">
-              </div>
+              
+              <form action="/upload/specular" method="POST" enctype="multipart/form-data" class="upload-texture-form">
+                <label class="file-container">
+                  <input type="file" name="texture" required='true' class="upload-texture" id="spec">
+                </label>
+                <button class="mat-add spec"><img src="/images/plus-blk.png" alt=""></button>
+              </form>
+
+              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+                <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
+              </form>
+
             </div>
           </div>
+
           <div class="material-prop">
             <img src="{{material.emissive}}" alt="Material emissive texture" onerror="this.src='/images/no-image.jpg';">
             <p>Emissive map</p>
             <div class="material-actions">
-              <div class="mat-del">
-                <img src="/images/minus-blk.png" alt="">
-              </div>
-              <div class="mat-add">
-                <img src="/images/plus-blk.png" alt="">
-              </div>
+              
+              <form action="/upload/emissive" method="POST" enctype="multipart/form-data" class="upload-texture-form">
+                <label class="file-container">
+                  <input type="file" name="texture" required='true' class="upload-texture" id="emis">
+                </label>
+                <button class="mat-add emis"><img src="/images/plus-blk.png" alt=""></button>
+              </form>
+
+              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+                <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
+              </form>
+
             </div>
           </div>
+
           <div class="material-prop">
             <img src="{{material.ambient}}" alt="Material ambient texture" onerror="this.src='/images/no-image.jpg';">
             <p>Ambient map</p>
             <div class="material-actions">
-              <div class="mat-del">
-                <img src="/images/minus-blk.png" alt="">
-              </div>
-              <div class="mat-add">
-                <img src="/images/plus-blk.png" alt="">
-              </div>
+              
+              <form action="/upload/ambient" method="POST" enctype="multipart/form-data" class="upload-texture-form">
+                <label class="file-container">
+                  <input type="file" name="texture" required='true' class="upload-texture" id="ambi">
+                </label>
+                <button class="mat-add ambi"><img src="/images/plus-blk.png" alt=""></button>
+              </form>
+
+              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+                <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
+              </form>
+
             </div>
           </div>
+
           <div class="material-prop">
             <img src="{{material.opacity}}" alt="Material name texture" onerror="this.src='/images/no-image.jpg';">
             <p>Opacity map</p>
             <div class="material-actions">
-              <div class="mat-del">
-                <img src="/images/minus-blk.png" alt="">
-              </div>
-              <div class="mat-add">
-                <img src="/images/plus-blk.png" alt="">
-              </div>
+                
+              <form action="/upload/opacity" method="POST" enctype="multipart/form-data" class="upload-texture-form">
+                <label class="file-container">
+                  <input type="file" name="texture" required='true' class="upload-texture" id="opac">
+                </label>
+                <button class="mat-add opac"><img src="/images/plus-blk.png" alt=""></button>
+              </form>
+
+              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+                <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
+              </form>
+
             </div>
           </div>
+
           <div class="material-prop">
             <img src="{{material.normal}}" alt="Material normal texture" onerror="this.src='/images/no-image.jpg';">
             <p>Normal map</p>
             <div class="material-actions">
-              <div class="mat-del">
-                <img src="/images/minus-blk.png" alt="">
-              </div>
-              <div class="mat-add">
-                <img src="/images/plus-blk.png" alt="">
-              </div>
+              
+              <form action="/upload/normal" method="POST" enctype="multipart/form-data" class="upload-texture-form">
+                <label class="file-container">
+                  <input type="file" name="texture" required='true' class="upload-texture" id="normal">
+                </label>
+                <button class="mat-add normal"><img src="/images/plus-blk.png" alt=""></button>
+              </form>
+
+              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+                <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
+              </form>
+
             </div>
           </div>
+
           <div class="material-prop">
             <img src="{{material.bump}}" alt="Material bump texture" onerror="this.src='/images/no-image.jpg';">
             <p>Bump map</p>
             <div class="material-actions">
-              <div class="mat-del">
-                <img src="/images/minus-blk.png" alt="">
-              </div>
-              <div class="mat-add">
-                <img src="/images/plus-blk.png" alt="">
-              </div>
+              
+              <form action="/upload/bump" method="POST" enctype="multipart/form-data" class="upload-texture-form">
+                <label class="file-container">
+                  <input type="file" name="texture" required='true' class="upload-texture" id="bump">
+                </label>
+                <button class="mat-add bump"><img src="/images/plus-blk.png" alt=""></button>
+              </form>
+
+              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+                <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
+              </form>
+
             </div>
           </div>
+
           <div class="material-prop">
             <img src="{{material.displace}}" alt="Material displace texture" onerror="this.src='/images/no-image.jpg';">
             <p>Displace map</p>
             <div class="material-actions">
-              <div class="mat-del">
-                <img src="/images/minus-blk.png" alt="">
-              </div>
-              <div class="mat-add">
-                <img src="/images/plus-blk.png" alt="">
-              </div>
+              
+              <form action="/upload/displace" method="POST" enctype="multipart/form-data" class="upload-texture-form">
+                <label class="file-container">
+                  <input type="file" name="texture" required='true' class="upload-texture" id="disp">
+                </label>
+                <button class="mat-add disp"><img src="/images/plus-blk.png" alt=""></button>
+              </form>
+
+              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+                <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
+              </form>
+
             </div>
           </div>
+
           <div class="material-prop">
             <img src="{{material.reflection}}" alt="Material reflection texture" onerror="this.src='/images/no-image.jpg';">
             <p>Reflection map</p>
             <div class="material-actions">
-              <div class="mat-del">
-                <img src="/images/minus-blk.png" alt="">
-              </div>
-              <div class="mat-add">
-                <img src="/images/plus-blk.png" alt="">
-              </div>
+
+              <form action="/upload/reflection" method="POST" enctype="multipart/form-data" class="upload-texture-form">
+                <label class="file-container">
+                  <input type="file" name="texture" required='true' class="upload-texture" id="refl">
+                </label>
+                <button class="mat-add refl"><img src="/images/plus-blk.png" alt=""></button>
+              </form>
+
+              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+                <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
+              </form>
+
             </div>
           </div>
+
           <div class="material-prop">
             <img src="{{material.refraction}}" alt="Material refraction texture" onerror="this.src='/images/no-image.jpg';">
             <p>Refraction map</p>
             <div class="material-actions">
-              <div class="mat-del">
-                <img src="/images/minus-blk.png" alt="">
-              </div>
-              <div class="mat-add">
-                <img src="/images/plus-blk.png" alt="">
-              </div>
+              
+              <form action="/upload/refraction" method="POST" enctype="multipart/form-data" class="upload-texture-form">
+                <label class="file-container">
+                  <input type="file" name="texture" required='true' class="upload-texture" id="refr">
+                </label>
+                <button class="mat-add refr"><img src="/images/plus-blk.png" alt=""></button>
+              </form>
+
+              <form action="/delete/{{material._id}}/diffuse" method="POST" enctype="multipart/form-data">
+                <button class="mat-del"><img src="/images/minus-blk.png" alt=""></button>
+              </form>
+
             </div>
           </div>
+
           <div class="material-tags">
             {{#each material.tags}}
               <h5>{{this}}</h5>
             {{/each}}
           </div>
+
         </div>
       </div>
     </div>
+
     <div class="preview">
       <div class="preview-actions">
         <div class="shape">
@@ -165,5 +229,6 @@
       </div>
       <canvas id="renderCanvas"></canvas>
     </div>
+    
   </div>
 </div>

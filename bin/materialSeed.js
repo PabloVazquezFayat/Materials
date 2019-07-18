@@ -1,8 +1,10 @@
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 const Material = require('../models/Material');
 
 const dbName = 'materials';
-mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 const materials = [
   {

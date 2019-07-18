@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 * {
-  font: 'Lato'; }
+  font-family: 'Lato'; }
 
 body {
   padding: 0px;
-  margin: 0px; }
+  margin: 0px;
+  font-family: 'Lato'; }
 
 a {
   color: #00B7FF; }
@@ -33,7 +34,7 @@ a {
   height: 70px; }
 
 .logo-container h1 {
-  color: #c476f7;
+  color: #a682ff;
   font-family: 'Lato';
   font-size: 38px; }
 
@@ -79,7 +80,7 @@ a {
   align-items: center; }
 
 .create-account {
-  width: 330px;
+  width: 315px;
   height: 420px;
   justify-content: space-around;
   align-items: center;
@@ -87,11 +88,14 @@ a {
 
 .singup-or-login {
   width: 630px;
-  height: 420px;
-  display: flex;
-  justify-content: space-between; }
+  height: 420px; }
 
 .singup-or-login form {
+  width: 315px;
+  float: left; }
+
+.signup-form, .login-form {
+  width: 315px;
   float: left; }
 
 .create-account h1 {
@@ -106,7 +110,7 @@ a {
   font-family: 'Lato';
   font-size: 20px;
   padding: 0px;
-  margin: 0px 0px 20px 0px; }
+  margin: 0px 0px 0px 0px; }
 
 #user-signup, #user-login {
   width: 300px;
@@ -140,7 +144,7 @@ a {
   color: white; }
 
 #user-signup button, #user-login button {
-  background: rgba(182, 72, 255, 0.7);
+  background: #a682ff;
   height: 35px;
   padding: 5px 10px;
   margin: 12px 0px 0px 0px;
@@ -223,19 +227,40 @@ a {
   justify-content: center; }
 
 .profile-wrapper {
-  width: 80%;
+  width: 75%;
   min-height: 650px;
   padding: 0px 0px 20px 0px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; }
+  justify-content: flex-start;
+  align-content: flex-start; }
+
+.no-mat-msg {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.message-container {
+  width: 68%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center; }
+
+.message-container h2 {
+  text-align: left;
+  color: #00B7FF;
+  padding: 0px;
+  margin: 0px; }
 
 .material-listing {
   background: #f0f0f0;
   width: 250px;
   height: 100px;
   border-radius: 4px;
-  margin: 20px 0px;
+  margin: 10px;
   -webkit-box-shadow: 0px 3px 5px 0px rgba(100, 100, 100, 0.75);
   -moz-box-shadow: 0px 3px 5px 0px rgba(100, 100, 100, 0.75);
   box-shadow: 0px 3px 5px 0px rgba(100, 100, 100, 0.75);
@@ -258,24 +283,61 @@ a {
 
 .mat-name {
   width: 150px;
-  height: 50px;
+  height: 70px;
   float: left; }
 
 .mat-category {
   width: 150px;
-  height: 50px;
-  float: left; }
+  height: 30px;
+  float: left;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: solid 1px #a682ff;
+  border-radius: 0px 0px 4px 0px; }
+
+.mat-category a {
+  width: 50%;
+  text-align: center;
+  padding: 7.5px 0px;
+  font-size: 12px;
+  text-decoration: none;
+  color: black;
+  border-right: solid 1px #a682ff; }
+
+.mat-category form {
+  width: 50%;
+  padding: 0px;
+  margin: 0px; }
+
+.mat-category form button {
+  width: 100%;
+  text-align: center;
+  border: none;
+  border-radius: 0px 0px 4px 0px;
+  padding: 6px 0px;
+  margin: 0px;
+  font-size: 12px;
+  color: black; }
+
+.mat-category a:hover {
+  cursor: pointer;
+  color: #00B7FF; }
+
+.mat-category form button:hover {
+  cursor: pointer;
+  color: #00B7FF; }
 
 .mat-name h5 {
   padding: 0px;
-  margin: 10px;
+  margin: 10px 10px 0px 10px;
   font-family: 'Lato';
   font-size: 16px;
-  color: #b648ff; }
+  color: #a682ff; }
 
-.mat-category h6 {
+.mat-name h6 {
   padding: 0px;
-  margin: 10px;
+  margin: 0px 10px 10px 10px;
   font-family: 'Lato';
   font-size: 14px;
   color: #102e4a;
@@ -289,7 +351,7 @@ a {
   align-items: center; }
 
 .create-material {
-  background: #b648ff;
+  background: #a682ff;
   width: 20px;
   height: 20px;
   padding: 10px;
@@ -312,21 +374,18 @@ a {
   justify-content: center; }
 
 .editor-wrapper {
-  background: green;
   width: 80%;
   height: auto;
   padding: 20px;
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-between; }
 
 .material-editor {
-  background: red;
-  width: 22%;
+  width: 31%;
   height: auto; }
 
 .preview {
-  background: blue;
-  width: 50%;
+  width: 55%;
   height: auto; }
 
 .preview-actions {
@@ -346,14 +405,14 @@ a {
   width: 100%; }
 
 #renderCanvas {
-  background: white;
   width: 90%;
   height: 90%;
   float: left;
   -webkit-box-shadow: 0px 3px 5px 0px rgba(100, 100, 100, 0.75);
   -moz-box-shadow: 0px 3px 5px 0px rgba(100, 100, 100, 0.75);
   box-shadow: 0px 3px 5px 0px rgba(100, 100, 100, 0.75);
-  border-radius: 4px; }
+  border-radius: 4px;
+  touch-action: none; }
 
 .setup-material {
   background: white;
@@ -407,10 +466,15 @@ a {
   border: solid 1px #a682ff;
   border-radius: 2px;
   font-size: 15px;
+  font-family: 'Lato';
   color: blue;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none; }
+
+#create-materials-menu select option {
+  font-family: 'Lato';
+  -moz-font-family: 'Lato'; }
 
 .setup-material-buttons {
   width: 100%;
@@ -434,7 +498,7 @@ a {
 
 .material {
   background: #f0f0f0;
-  width: 250px;
+  width: 350px;
   border-radius: 4px;
   margin: 0px; }
 
@@ -463,7 +527,7 @@ a {
   margin: 10px 0px 0px 0px;
   font-family: 'Lato';
   font-size: 18px;
-  color: #b648ff; }
+  color: #a682ff; }
 
 .material-cat {
   background: #fff;
@@ -492,7 +556,7 @@ a {
 .material-prop {
   background: #fff;
   width: 100%;
-  height: 155px;
+  height: 45px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -508,36 +572,37 @@ a {
   margin: 0px 0px 0px 10px; }
 
 .material-prop p {
-  width: 120px;
+  width: 100px;
   font-family: 'Lato';
   font-size: 14px;
   color: black; }
 
 .material-actions {
-  background: green;
+  width: 180px;
   margin: 0px 10px 0px 0px;
   display: flex;
   justify-content: space-between; }
 
 .mat-del, .mat-add {
   background: white;
-  width: 15px;
-  height: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 23px;
+  height: 23px;
+  border: none;
   border-radius: 50%;
   -webkit-box-shadow: 0px 3px 5px 0px rgba(100, 100, 100, 0.75);
   -moz-box-shadow: 0px 3px 5px 0px rgba(100, 100, 100, 0.75);
   box-shadow: 0px 3px 5px 0px rgba(100, 100, 100, 0.75); }
 
 .mat-del img, .mat-add img {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   float: left;
-  border-radius: 0px;
-  margin: 0px;
+  margin: 0px 0px 0px -4px;
   padding: 0px; }
+
+.add-btn {
+  background: none;
+  width: auto; }
 
 .material-tags {
   background: #fff;
@@ -558,5 +623,39 @@ a {
   font-size: 14px;
   font-weight: 400;
   color: #000; }
+
+.file-container {
+  width: 120px;
+  height: 24px;
+  float: left; }
+
+.file-container [type=file] {
+  width: 0px;
+  overflow: hidden;
+  margin: 0px 0px 0px 0px;
+  float: left; }
+
+.file-container::-webkit-file-upload-button {
+  visibility: hidden; }
+
+.file-container::before {
+  content: 'Select texture';
+  background: #a682ff;
+  display: inline-block;
+  border-radius: 3px;
+  padding: 8px 10px 8px 10px;
+  margin: -4px 0px 0px 0px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: 'Lato';
+  font-weight: 200;
+  text-decoration: none;
+  text-shadow: none;
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */
