@@ -1,30 +1,37 @@
+<div class="setup-material">
+  <form action="/createMaterial/{{user.id}}" method="POST" id="create-materials-menu">
+    <label>Name:</label>
+    <input type="text" name="name" id="name-the-mat" required="true" placeholder="Enter new material name">
+    <label>Category:</label>
+    <select name="category" required="true" id="cat-the-mat">
+      <option value="">Select material category</option>
+      <option value="Architecture">Architecture</option>
+      <option value="Fabric">Fabric</option>
+      <option value="Ground">Ground</option>
+      <option value="Metal">Metal</option>
+      <option value="Plant">Plant</option>
+      <option value="Stone">Stone</option>
+      <option value="Synthetic">Synthetic</option>
+      <option value="Wood">Wood</option>
+    </select>
+    <div class="setup-material-buttons">
+      <button type="submit">Create</button>
+      <button class="cancel" type="button">Cancel</button>
+    </div>
+  </form>
+</div>
+
 <div class="profile-container">
   <div class="profile-wrapper">
+
     <div class="user-actions">
       {{!-- search by #tag --}}
       {{!-- sort by category --}}
       <div class="create-material">
-        <img src="/images/plus.png">
+        <img id="add-img" src="/images/plus.png">
       </div>
     </div>
-    <div class="setup-material">
-      <form action="/createMaterial/{{user.id}}" method="POST">
-        <label>Name:</label>
-        <input type="text" name="name" id="name-the-mat" required="true">
-        <label>Category:</label>
-        <select name="category">
-          <option value="Architecture">Architecture</option>
-          <option value="Fabric">Fabric</option>
-          <option value="Ground">Ground</option>
-          <option value="Metal">Metal</option>
-          <option value="Plant">Plant</option>
-          <option value="Stone">Stone</option>
-          <option value="Synthetic">Synthetic</option>
-          <option value="Wood">Wood</option>
-        </select>
-        <button>Create</button>
-      </form>
-    </div>
+
     {{#each material}}
       <div class="material-listing">
         <div class="material-img">
@@ -46,5 +53,6 @@
         </div>
       </div>
     {{/each}}
+
   </div>
 </div>

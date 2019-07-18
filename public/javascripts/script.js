@@ -20,3 +20,39 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 }, false);
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  //ADD MATERIAL PANEL
+  let addMaterialButton = document.querySelector('.create-material');
+  let createMaterialPanel = document.querySelector('.setup-material');
+  let cancel = document.querySelector('.cancel');
+
+  let addMaterialButtonImg = document.getElementById('add-img');
+
+  let createMaterialName = document.getElementById('name-the-mat');
+  let createMaterialCategory = document.getElementById('cat-the-mat');
+
+  let hideShow = false;
+
+  addMaterialButton.addEventListener('click', ()=>{
+    if(hideShow === false){
+      createMaterialPanel.style.display = 'flex';
+      hideShow = true;
+      addMaterialButtonImg.setAttribute('src', '../images/minus.png');
+      return 
+    }else{
+      createMaterialPanel.style.display = 'none';
+      addMaterialButtonImg.setAttribute('src', '../images/plus.png');
+      hideShow = false;
+      return;
+    }
+  });
+
+  cancel.addEventListener('click', ()=>{
+    createMaterialPanel.style.display = 'none';
+    addMaterialButtonImg.setAttribute('src', '../images/plus.png');
+    hideShow = false;
+    return;
+  });
+
+});

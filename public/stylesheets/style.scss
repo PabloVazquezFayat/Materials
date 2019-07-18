@@ -355,6 +355,10 @@ a {
   height: 20px;
 }
 
+.create-material:hover{
+  cursor: pointer;
+}
+
 //EDITOR
 .editor-container{
   width: 100%;
@@ -413,6 +417,92 @@ a {
   -moz-box-shadow: 0px 3px 5px 0px rgba(100,100,100,0.75);
   box-shadow: 0px 3px 5px 0px rgba(100,100,100,0.75);
   border-radius: 4px;
+}
+
+.setup-material{
+  background: white;
+  width: 370px;
+  height: 220px;
+  border-radius: 4px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(100,100,100,0.75);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(100,100,100,0.75);
+  box-shadow: 0px 3px 5px 0px rgba(100,100,100,0.75);
+  border-radius: 4px;
+  position: absolute;
+  margin: 170px 0px 0px 150px;
+}
+
+#create-materials-menu{
+  width: 350px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#create-materials-menu input{
+  height: 30px;
+  width: 328px;
+  margin: 0px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 2px;
+  font-size: 15px;
+  font-family: 'Lato';
+  color: blue;
+  border: solid 1px #a682ff;
+}
+
+#create-materials-menu label{
+  margin: 0px 0px 5px 0px;
+  font-family: 'Lato';
+  color: #a682ff;
+}
+
+#create-materials-menu label:last-of-type{
+  margin: 10px 0px 5px 0px;
+}
+
+#create-materials-menu select{
+  background-image: none;
+  background: white;
+  width: 100%;
+  padding: 10px 10px 10px 6px;
+  margin: 0px;
+  border: solid 1px #a682ff;
+  border-radius: 2px;
+  font-size: 15px;
+  color: blue;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.setup-material-buttons{
+  width: 100%;
+  margin: 20px 0px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.setup-material-buttons button{
+  background: #a682ff;
+  margin: 0px 0px 0px 0px;
+  padding: 10px 20px;
+  list-style: none;
+  font-family: 'Lato';
+  font-size: 14px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+}
+
+.setup-material-buttons button:hover{
+  cursor: pointer;
 }
 
 //MATERIALS PANEL
