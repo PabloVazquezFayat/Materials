@@ -42,7 +42,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Create a basic light, aiming 0,1,0 - meaning, to the sky.
     var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
-    light.intensity = 2.0;
+    light.intensity = 0.75;
 
     var direct = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-1, -2, -1), scene);
     direct.intensity = 2.0;
@@ -85,6 +85,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
     //Create material
     var previewMaterial = new BABYLON.StandardMaterial('mat', scene);
+    previewMaterial.roughness = 0.5;
+    previewMaterial.environmentTexture = hdrTexture;
+
     if(diffuse.includes(errorImage) == false){
       previewMaterial.diffuseTexture = new BABYLON.Texture(diffuse, scene);
     }
@@ -125,12 +128,11 @@ window.addEventListener('DOMContentLoaded', function() {
     // Shadows
     var shadowGenerator = new BABYLON.ShadowGenerator(1024, direct);
     shadowGenerator.getShadowMap().renderList.push(sphere);
-    //shadowGenerator.getShadowMap().renderList.push(box);
-    //shadowGenerator.getShadowMap().renderList.push(cylinder);
-    shadowGenerator.forceBackFacesOnly = true;
+    shadowGenerator.getShadowMap().renderList.push(box);
+    shadowGenerator.getShadowMap().renderList.push(cylinder);
     shadowGenerator.useBlurExponentialShadowMap = true;
     shadowGenerator.useKernelBlur = true;
-    shadowGenerator.blurKernel = 64;
+    shadowGenerator.blurKernel = 32;
 
     ground.receiveShadows = true;
 
