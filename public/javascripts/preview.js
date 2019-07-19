@@ -22,10 +22,10 @@ window.addEventListener('DOMContentLoaded', function() {
 	  engine.setHardwareScalingLevel(0.5);
 
     //Create default environemt
-    var hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("/images/environment.dds", scene);
-    hdrTexture.gammaSpace = false;
+    //var hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("/images/environment.dds", scene);
+    //hdrTexture.gammaSpace = false;
     
-    scene.createDefaultSkybox(hdrTexture, true, 500, 0.3);
+    //scene.createDefaultSkybox(hdrTexture, true, 500, 0.3);
 
     // Parameters: alpha, beta, radius, target position, scene
     var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, new BABYLON.Vector3(0, 0, 0), scene);
@@ -85,8 +85,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
     //Create material
     var previewMaterial = new BABYLON.StandardMaterial('mat', scene);
-    previewMaterial.roughness = 0.5;
-    previewMaterial.environmentTexture = hdrTexture;
+    previewMaterial.roughness = 1.0;
+    //previewMaterial.environmentTexture = hdrTexture;
 
     if(diffuse.includes(errorImage) == false){
       previewMaterial.diffuseTexture = new BABYLON.Texture(diffuse, scene);
