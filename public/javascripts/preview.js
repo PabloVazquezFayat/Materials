@@ -42,13 +42,25 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // Create a basic light, aiming 0,1,0 - meaning, to the sky.
     var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
-    light.intensity = 3.0;
+    light.intensity = 2.0;
+
+    var direct = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(-1, -2, -1), scene);
+    direct.intensity = 2.0;
+    direct.position = new BABYLON.Vector3(20, 40, 20);
 
     // Create a built-in "sphere" shape. 
     var sphere = BABYLON.MeshBuilder.CreateSphere('sphere', {segments:16, diameter:6}, scene);
 
+    // Create Box and cylinder
+    var box = BABYLON.MeshBuilder.CreateBox('box', {width: 6, height: 6, depth: 6}, scene);
+
+    // Create cylinder
+    var cylinder = BABYLON.MeshBuilder.CreateCylinder("cyl", {diameterTop: 6, diameterBottom: 6, height: 6, tessellation: 18}, scene);
+
     // Move the sphere upward 1/2 of its height.
     sphere.position.y = 4;
+    box.position.y = 4;
+    cylinder.position.y = 4;
 
     // Set camera target
     camera.lockedTarget = sphere;
@@ -107,6 +119,48 @@ window.addEventListener('DOMContentLoaded', function() {
 
     sphere.material = previewMaterial;
     ground.material = previewMaterial;
+    box.material = previewMaterial;
+    cylinder.material = previewMaterial;
+
+    // Shadows
+    var shadowGenerator = new BABYLON.ShadowGenerator(1024, direct);
+    shadowGenerator.getShadowMap().renderList.push(sphere);
+    //shadowGenerator.getShadowMap().renderList.push(box);
+    //shadowGenerator.getShadowMap().renderList.push(cylinder);
+    shadowGenerator.forceBackFacesOnly = true;
+    shadowGenerator.useBlurExponentialShadowMap = true;
+    shadowGenerator.useKernelBlur = true;
+    shadowGenerator.blurKernel = 64;
+
+    ground.receiveShadows = true;
+
+    // Set initial visibility
+    box.visibility = 0;
+    sphere.visibility = 1;
+    cylinder.visibility = 0;
+
+    //get shape buttons
+    let cube = document.getElementById('cube');
+    let circle = document.getElementById('circle');
+    let cylin = document.getElementById('cylinder');
+
+    cube.onclick = ()=>{
+      box.visibility = 1;
+      sphere.visibility = 0;
+      cylinder.visibility = 0;
+    }
+
+    circle.onclick = ()=>{
+      box.visibility = 0;
+      sphere.visibility = 1;
+      cylinder.visibility = 0;
+    }
+
+    cylin.onclick = ()=>{
+      box.visibility = 0;
+      sphere.visibility = 0;
+      cylinder.visibility = 1;
+    }
 
     // Return the created scene.
     return scene;

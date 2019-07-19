@@ -65,7 +65,6 @@ router.post('/delete/:material/:channel', ensureLogin.ensureLoggedIn('/'), (req,
   .catch((err)=>{
     next(err);
   });
-  
 });
 
 //DELETE single material
