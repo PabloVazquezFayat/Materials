@@ -3,6 +3,7 @@ require('dotenv').config();
 const bodyParser    = require('body-parser');
 const cookieParser  = require('cookie-parser');
 const express       = require('express');
+const cors          = require('cors');
 const favicon       = require('serve-favicon');
 const hbs           = require('hbs');
 const mongoose      = require('mongoose');
@@ -34,6 +35,8 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
+app.use(cors());
 
 // Middleware Setup
 app.use(logger('dev'));

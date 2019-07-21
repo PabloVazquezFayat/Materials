@@ -22,10 +22,10 @@ window.addEventListener('DOMContentLoaded', function() {
 	  engine.setHardwareScalingLevel(0.5);
 
     //Create default environemt
-    //var hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("/images/environment.dds", scene);
-    //hdrTexture.gammaSpace = false;
+    var hdrTexture = BABYLON.CubeTexture.CreateFromPrefilteredData("/images/environment.dds", scene);
+    hdrTexture.gammaSpace = false;
     
-    //scene.createDefaultSkybox(hdrTexture, true, 500, 0.3);
+    scene.createDefaultSkybox(hdrTexture, true, 500, 0.3);
 
     // Parameters: alpha, beta, radius, target position, scene
     var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 10, new BABYLON.Vector3(0, 0, 0), scene);
@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', function() {
     ground.position.y = 1;
 
     //Get material urls
-    let errorImage = '/images/no-image.jpg';
+    let source = 'cloudinary';
     let diffuse = document.getElementById('diffuse').src;
     let specular = document.getElementById('specular').src;
     let emissive = document.getElementById('emissive').src;
@@ -81,42 +81,45 @@ window.addEventListener('DOMContentLoaded', function() {
     let displace = document.getElementById('displace').src;
     let reflection = document.getElementById('reflection').src;
     let refraction = document.getElementById('refraction').src;
-
+    
+    console.log(diffuse, normal);
 
     //Create material
     var previewMaterial = new BABYLON.StandardMaterial('mat', scene);
     previewMaterial.roughness = 1.0;
-    //previewMaterial.environmentTexture = hdrTexture;
+    previewMaterial.environmentTexture = hdrTexture;
 
-    if(diffuse.includes(errorImage) == false){
+    console.log(specular);
+
+    if(diffuse.includes(source)){
       previewMaterial.diffuseTexture = new BABYLON.Texture(diffuse, scene);
     }
-    if(specular.includes(errorImage) == false){
+    if(specular.includes(source)){
       previewMaterial.specularTexture = new BABYLON.Texture(specular, scene);
     }
-    if(emissive.includes(errorImage) == false){
-      console.log(emissive);
+    if(emissive.includes(source)){
       previewMaterial.emissiveTexture = new BABYLON.Texture(emissive, scene);
     }
-    if(ambient.includes(errorImage) == false){
+    if(ambient.includes(source)){
       previewMaterial.ambientTexture = new BABYLON.Texture(ambient, scene);
     }
-    if(opacity.includes(errorImage) == false){
+    if(opacity.includes(source)){
       previewMaterial.opacityTexture = new BABYLON.Texture(opacity, scene);
     }
-    if(normal.includes(errorImage) == false){
+    if(normal.includes(source)){
       previewMaterial.bumpTexture = new BABYLON.Texture(normal, scene);
       previewMaterial.invertNormalMapX = true;
       previewMaterial.invertNormalMapY = true
-    }else if(bump.includes(errorImage) == false){
+    }
+    if(bump.includes(source)){
       previewMaterial.bumpTexture = new BABYLON.Texture(bump, scene);
       previewMaterial.invertNormalMapX = true;
       previewMaterial.invertNormalMapY = true
     }
-    if(reflection.includes(errorImage) == false){
+    if(reflection.includes(source)){
       previewMaterial.reflectionTexture = new BABYLON.Texture(reflection, scene);
     }
-    if(refraction.includes(errorImage) == false){
+    if(refraction.includes(source)){
       previewMaterial.refractionTexture = new BABYLON.Texture(refraction, scene);
     }
 
